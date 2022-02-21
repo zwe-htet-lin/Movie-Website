@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Singup Form</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../images/fav-icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+    
+    <div class="formContainer signInForm">
+
+        <div class="formBox signInBox">
+            <h2>Login</h2>
+
+            <form action="" class="formSignIn">
+                <div class="fieldContainer">
+                    <div class="field">
+                        <i class="material-icons padding">email</i>
+                        <input class="email" type="text" placeholder="Email">
+                    </div>
+                    <small>Error message</small>
+                </div>
+               <div class="fieldContainer">
+                    <div class="field">
+                        <i class="material-icons">lock</i>
+                        <input class="password" type="password" placeholder="Password">
+                        <i class="material-icons eyeBtn">visibility_off</i>
+                    </div>
+                    <small>Error message</small>
+               </div>
+                <div class="forgotText">
+                    <span href="">Forgot password?</span>
+                </div>
+                <button class="submitBtn">Login</button>
+            </form>
+
+            <div class="logInOptions">
+                <p>Or, login with...</p>
+                <div class="otherLogins">
+                    <a href="https://accounts.google.com"><img src="images/google.png"></a>
+                    <a href="https://www.facebook.com"><img src="images/facebook.png"></a>
+                    <a href="https://www.apple.com"><img src="images/apple.png"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="imgBox signInImgBox">
+            <div class="slidingLink">
+                <p>Don't have an account?</p>
+                <span class="signUpBtn">Sign Up</span>
+            </div>
+            <img src="images/signin-img.png">
+        </div>
+
+    </div>
+
+    <div class="formContainer signUpForm">
+
+        <div class="imgBox signUpImgBox">
+            <div class="slidingLink">
+                <p>Already have an account?</p>
+                <span class="signInBtn">Sign In</span>
+            </div>
+            <img src="images/signup-img.png">
+        </div>
+
+        <div class="formBox signUpBox">
+            <h2>Sign Up</h2>
+
+            <div class="logInOptions">
+                <div class="otherLogins">
+                    <a href="https://accounts.google.com"><img src="images/google.png"></a>
+                    <a href="https://www.facebook.com"><img src="images/facebook.png"></a>
+                    <a href="https://www.apple.com"><img src="images/apple.png"></a>
+                </div>
+                <p>Or, sign up with email...</p>
+            </div>
+
+            <form class="formSignUp">
+                <div class="fieldContainer">
+                    <div class="field">
+                        <i class="material-icons">person</i>
+                        <input class="username" type="text" placeholder="Username">
+                    </div>
+                    <small>Error message</small>
+                </div>
+                <div class="fieldContainer">
+                    <div class="field">
+                        <i class="material-icons padding">email</i>
+                        <input class="email2" type="text" placeholder="Email">
+                    </div>
+                    <small>Error message</small>
+                </div>
+               <div class="fieldContainer">
+                    <div class="field">
+                        <i class="material-icons">lock</i>
+                        <input class="password2" type="password" placeholder="Password">
+                        <i class="material-icons eyeBtn2">visibility_off</i>
+                    </div>
+                    <small>Error message</small>
+               </div>
+               <div class="fieldContainer">
+                    <div class="field">
+                        <i class="material-icons">lock</i>
+                        <input class="confirmPassword" type="password" placeholder="Confirm password">
+                        <i class="material-icons eyeBtn3">visibility_off</i>
+                    </div>
+                    <small>Error message</small>
+                </div>
+                <button class="submitBtn">Sign up</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

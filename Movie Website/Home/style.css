@@ -1,0 +1,2759 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root{
+    --primary: #e70634; 
+}
+
+::selection{
+    background-color: var(--primary);
+    color: #111111;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+    background-color: #080808;
+}
+
+a{
+    text-decoration: none;
+}
+
+.back{
+    display: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    font-weight: 500;
+    line-height: 50px;
+    border-radius: 50%;
+    z-index: 3;
+    color: #fff;
+    background-color: var(--primary);
+    transition: all 0.5s ease;
+}
+
+.back:hover{
+    color: #000;
+    transition: all 0.5s ease;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1500px;
+    padding: 20px 50px;
+    margin: auto;
+}
+
+.footer span{
+    color: #fff;
+}
+
+.navigationContainer{
+    position: relative;
+    z-index: 10;
+}
+
+.navigationContainer.sticky{
+    position: sticky;
+    top: 0;
+    background-color: #080808;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1500px;
+    padding: 20px 50px;
+    margin: auto;
+}
+
+.leftNavigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightNavigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuIconContainer{
+    display: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.line{
+    height: 1.7px;
+    width: 17px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.line2{
+    margin: 3px 0px;
+}
+
+.logo{
+    width: 60px;
+    height: 60px;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.menuContainer{
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movieMenu span,
+.tvShowMenu span,
+.peopleMenu span{
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: Monoton;
+    margin: 0px 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+.movieMenu, .tvShowMenu, .peopleMenu{
+    position: relative;
+}
+
+.movieMenu:hover .menuDropDown,
+.tvShowMenu:hover .menuDropDown,
+.peopleMenu:hover .menuDropDown{
+    opacity: 1;
+    visibility: visible;
+    animation: slideDown 0.5s ease;
+}
+
+.menuDropDown{
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+    position: absolute;
+    top: 35px;
+    width: 160px;
+    padding: 7px 0px;
+    border-radius: 5px;
+    background-color: #292929;
+}
+
+@keyframes slideDown {
+    0%{
+        top: 25px;
+        opacity: 0;
+    }
+
+    100%{
+        top: 35px;
+        opacity: 1;
+    }
+}
+
+.menuDropDown a{
+    padding: 5px 15px;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.menuDropDown a:hover{
+    opacity: 0.8;
+    background-color: #1f1f1f;
+}
+
+.searchBox{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    height: 35px;
+    padding: 3px 20px;
+    background-color: #ffffff11;
+}
+
+.searchBox.active{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.searchBox input{
+    width: 250px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: transparent;
+}
+
+.searchBox input::placeholder{
+    color: #ffffff5e;
+}
+
+.searchBox button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+    color: #ffffffc9;
+}
+
+.searchBox i{
+    font-size: 1.25rem;
+}
+
+.searchList{
+    z-index: 2;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    max-height: 405px;
+    overflow-y: scroll;
+    background-color: #292929;
+}
+
+.searchBox.active .searchList{
+    display: block;
+}
+
+.searchList::-webkit-scrollbar{
+    width: 0px;
+}
+
+.searchListItem{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    height: 81px;
+    cursor: pointer;
+    border-bottom: 1px solid #171717;
+}
+
+.searchListItem:hover{
+    background-color: #1f1f1f;
+}
+
+.searchItemImg{
+    width: 22%;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.searchItemImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.searchItemInfo{
+    max-width: 218px;
+    width: 78%;
+    height: 100%;
+}
+
+.searchItemInfo h3{
+    font-size: 1rem;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgb(223, 223, 223);
+}
+
+.searchItemInfo p{
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 30px;
+    opacity: 0.7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgba(240,240,240,0.82);
+}
+
+.login{
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: Monoton;
+    margin-left: 25px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+.sideBarContainer{
+    position: absolute;
+    top: 0;
+    left: -70%;
+    width: 70%;
+    height: 100vh;
+    z-index: 15;
+    background-color: #080808;
+    transition: left 0.3s ease;
+}
+
+.closeSideBar{
+    width: 100%;
+    height: 8%;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, #000 3px, #000 6px);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #292929;
+}
+
+.closeBtn{
+    font-size: 1rem !important;
+    margin-right: 8px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sideBarMovieMenuContainer, .sideBarTvshowMenuContainer, .sideBarPeopleMenuContainer, .sideBarLoginMenuContainer{
+    position: relative;
+}
+
+.sideBarMenu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    transition: all 0.3s ease;
+}
+
+.sideBarMenu span{
+    font-size: 1rem;
+    color: #fff;
+}
+
+.sideBarMenu .dropdown{
+    font-size: 1.3rem;
+    color: #A8A8A8;
+    transition: all 0.5s ease;
+}
+
+.iconText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconText span:first-child{
+    margin-right: 10px;
+}
+
+.sideBarMovieMenuDropdown, .sideBarTvshowMenuDropdown, .sideBarPeopleMenuDropdown, .loginMenuDropdown{
+    display: none;
+    border-bottom: 1px solid #292929;
+    width: 100%;
+    padding: 3px 0px;
+    transition: all 0.5s ease;
+}
+
+.sideBarMovieMenuDropdown a, .sideBarTvshowMenuDropdown a, .sideBarPeopleMenuDropdown a, .loginMenuDropdown a{
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    padding: 5px;
+    width: 100%;
+    color: #fff;
+}
+
+.sideBarMovieMenuDropdown a:active, .sideBarTvshowMenuDropdown a:active, .sideBarPeopleMenuDropdown a:active, .loginMenuDropdown a:active{
+    background-color: #292929;
+    border-top: 1px dotted #fff;
+    border-bottom: 1px dotted #fff;
+}
+
+.sideBarMovieMenuDropdown a:first-child:active, .sideBarTvshowMenuDropdown a:first-child:active, .sideBarPeopleMenuDropdown a:first-child:active, .loginMenuDropdown a:first-child:active{
+    background-color: #292929;
+    border-top: none;
+    border-bottom: 1px dotted #fff;
+}
+
+.sideBarMovieMenuContainer.clicked .sideBarMenu,
+.sideBarTvshowMenuContainer.clicked .sideBarMenu,
+.sideBarPeopleMenuContainer.clicked .sideBarMenu,
+.sideBarLoginMenuContainer.clicked .sideBarMenu{
+    border-top: 1px dotted #fff;
+    border-bottom: 1px dotted #fff;
+}
+
+.sideBarMovieMenuContainer.clicked .sideBarMenu .iconText span,
+.sideBarTvshowMenuContainer.clicked .sideBarMenu .iconText span,
+.sideBarPeopleMenuContainer.clicked .sideBarMenu .iconText span,
+.sideBarLoginMenuContainer.clicked .sideBarMenu .iconText span{
+    color: #d4aa11;
+}
+
+.sideBarMovieMenuContainer.clicked .sideBarMenu .dropdown,
+.sideBarTvshowMenuContainer.clicked .sideBarMenu .dropdown,
+.sideBarPeopleMenuContainer.clicked .sideBarMenu .dropdown,
+.sideBarLoginMenuContainer.clicked .sideBarMenu .dropdown{
+    transform: rotate(180deg);
+    transition: all 0.3s ease;
+}
+
+.sideBarMovieMenuContainer.clicked .sideBarMovieMenuDropdown,
+.sideBarTvshowMenuContainer.clicked .sideBarTvshowMenuDropdown,
+.sideBarPeopleMenuContainer.clicked .sideBarPeopleMenuDropdown,
+.sideBarLoginMenuContainer.clicked .loginMenuDropdown{
+    display: block;
+    transition: all 0.5s ease;
+}
+
+.bannerContainer{
+    width: 93%;
+    max-width: 1450px;
+    height: 40vh;
+    margin: auto;
+    position: relative;
+}
+
+.bannerContainer::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgb(0,0,0,0.8) 100%, rgba(0,0,0,08) 100%);
+}
+
+.bannerImg{
+    width: 100%;
+    height: 100%;
+}
+
+.bannerImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.bannerHeading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bannerHeading h2{
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.bannerHeading h3{
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.trendingContainer, .nowPlayingContainer, .upcomingContainer{
+    max-width: 1500px;
+    padding: 0px 50px;
+    margin: 30px auto;
+}
+
+.trendingContainer{
+    margin-top: 10px;
+}
+
+.titleContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.titleContainer div:first-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleContainer .header{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.titleContainer a, .responsiveTitleContainer a{
+    color: #fff;
+}
+
+.filterRadios{
+    position: relative;
+    padding: 3px 0px;
+    margin-left: 20px;
+    border-radius: 20px;
+    border: 1px solid #dfdfdf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filterRadios span{
+    position: relative;
+    font-size: 0.9rem;
+    margin: 0px 17px;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.5s;
+    z-index: 1;
+    color: #fff;
+}
+
+.selector, .Selector, #Selector{
+    background: var(--primary);
+    position: absolute;
+    top:    0px;
+    left:   0px;
+    bottom: 0px;
+    width: 90px;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+}
+
+.responsiveTitleContainer{
+    display: none;
+    padding: 15px 0px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.responsiveTitleContainer .header{
+    margin-bottom: 7px;
+    font-size: 1.1rem;
+}
+
+.responsiveTitleContainer div:last-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.responsiveTitleContainer .filterRadios{
+    margin: 0px;
+    padding: 1px 0px;
+}
+
+.trendingBoxContainer, .nowPlayingBoxContainer, .upcomingBoxContainer{
+    display: flex;
+    height: 100%;
+    max-height: 400px;
+    padding-bottom: 25px;
+    overflow-x: scroll;
+}
+
+.trendingBoxContainer::-webkit-scrollbar,
+.nowPlayingBoxContainer::-webkit-scrollbar,
+.upcomingBoxContainer::-webkit-scrollbar{
+    height: 6px;
+}
+
+.trendingBoxContainer::-webkit-scrollbar-track,
+.nowPlayingBoxContainer::-webkit-scrollbar-track,
+.upcomingBoxContainer::-webkit-scrollbar-track{
+    border-radius: 5px;
+    background-color: rga(241,241,241);
+}
+
+.trendingBoxContainer::-webkit-scrollbar-thumb,
+.nowPlayingBoxContainer::-webkit-scrollbar-thumb,
+.upcomingBoxContainer::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: #A8A8A8;
+}
+
+.resultBox{
+    min-width: 175px;
+    height: 350px;
+    margin: 0px 8px;
+    border-radius: 5px;
+    border: 1px solid #161616b9;
+    background-color: #0e0e0ec2;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.15);
+}
+
+.resultBox:first-child{
+    margin-left: 0px;
+}
+
+.resultImg{
+    width: 100%;
+    height: 70%;
+    cursor: pointer;
+}
+
+.resultImg img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+}
+
+.resultText{
+    width: 100%;
+    height: 30%;
+    padding: 7px;
+    padding-top: 10px;
+    overflow: scroll;
+}
+
+.resultText::-webkit-scrollbar{
+    width: 0px;
+}
+
+.resultText h3{
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #dfdfdf;
+}
+
+.resultText h3:hover{
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.resultInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.resultInfo p{
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: rgba(240,240,240,0.82);
+}
+
+.showResultContainer{
+    display: none;
+    width: 100%;
+    max-width: 1500px;
+    padding: 0px 50px;
+    margin: 30px auto;
+}
+
+.heading{
+    width: 100%;
+    padding: 8px 16px;
+    border: 1px solid #161616b9;
+    background-color: #0e0e0ec2;
+}
+
+.heading h1{
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #dadada;
+}
+
+.resultContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 25px;
+    margin: 30px 0px;
+}
+
+.movieBox{
+    position: relative;
+    width: 100%;
+    border: 1px solid #161616b9;
+    background-color: #0e0e0ec2;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.15);
+}
+
+.movieImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.movieText{
+    width: 100%;
+    padding: 10px;
+}
+
+.movieText h3{
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 20px;
+    cursor: pointer;
+    color: #dfdfdf;
+    transition: all 0.3s ease;
+}
+
+.movieText h3:hover{
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.movieInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.movieInfo p{
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: rgba(240,240,240,0.82);
+}
+
+.rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movieText .rating span{
+    font-size: 0.95rem;
+}
+
+.movieText .rating img{
+    height: 20px;
+    width: 20px;
+    transform: translateY(-1px);
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+}
+
+.rating span{
+    font-size: 0.85rem;
+}
+
+.rating span.green {
+    color: rgb(39, 189, 39);
+}
+
+.rating span.orange {
+    color: orange;
+}
+
+.rating span.red {
+    color: rgb(189, 42, 42);
+}
+
+.rating img{
+    height: 18px;
+    width: 18px;
+    transform: translateY(-1px);
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+}
+
+.pageNumber{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageNumber span{
+    user-select: none;
+    cursor: pointer;
+    margin: 0px 10px;
+    color: #fff;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.pageNumber .active{
+    opacity: 1;
+}
+
+.pageNumber span:hover{
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.pageNumber .prev{
+    display: none;
+}
+
+.pageNumber .dot{
+    cursor: text;
+    color: #fff;
+    opacity: 0.6;
+}
+
+.pageNumber .dot:hover{
+    opacity: 0.6;
+}
+
+.pageNumber .numbers{
+    display: none;
+}
+
+.resultDetailContainer{
+    display: none;
+    position: relative;
+    width: 95%;
+    max-width: 1500px;
+    min-height: 500px;
+    padding: 25px;
+    margin: auto;
+}
+
+.resultDetailContainer::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgb(8,8,8) 25%, rgba(0,0,0,0.7) 100%);
+}
+
+.movieBackgroundImg{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+}
+
+.movieBackgroundImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.movieDetailsContainer{
+    position: absolute;
+    z-index: 1;
+    display: flex;
+}
+
+.moviePosterImg{
+    width: 300px;
+    height: 450px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+}
+
+.movieDetails{
+    margin-left: 40px;
+}
+
+.movieDetails h2{
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 25px;
+    color: #fff;
+}
+
+.movieInfomation{
+    padding-top: 10px;
+}
+
+.movieInfomation span{
+    font-size: 1.1rem;
+    margin-right: 15px;
+    color: #e9e9e9;
+}
+
+.movieInfomation span img{
+    height: 25px;
+    width: 25px;
+    transform: translateY(5px);
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+}
+
+.movieInfomation span:first-child{
+    font-size: 0.85rem;
+    opacity: 0.7;
+    padding: 2px;
+    border: 1px solid #e9e9e9;
+}
+
+.runTime{
+    display: none;
+}
+
+.watchBtn{
+    width: 140px;
+    height: 40px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background-color: #ffffff09;
+    border: 1px solid #ffffff2c;
+    transition: all ease 0.3s;
+}
+
+.watchBtn:hover{
+    background-color: #e70634;
+    transition: all ease 0.3s;
+}
+
+.tagLine i{
+    opacity: 0.7;
+    color: #e9e9e9;
+}
+
+.overview{
+    color: #e9e9e9;
+}
+
+.overview h3{
+    font-weight: 500;
+    margin: 5px 0px;
+}
+
+.overview p{
+    max-height: 85px;
+    overflow-y: scroll;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.overview p::-webkit-scrollbar{
+    width: 0px;
+}
+
+.directors, .writers, .stars, .language, .award{
+    margin: 10px 0px;
+    color: #e9e9e9;
+}
+
+.directors strong, .writers strong, .stars strong, .language strong{
+    font-weight: 500;
+}
+
+.language, .award i{
+    color: #d4aa11;
+}
+
+.award{
+    margin-bottom: 0px;
+}
+
+.videoPopupContainer{
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(15,15,15,0.7);
+    animation: fade 0.5s;
+}
+
+.videoPopup{
+    width: 80%;
+    height: 80%;
+    margin-bottom: 30px;
+}
+
+.close{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+}
+
+.close span{
+    pointer-events: none;
+    color: #fff;
+}
+
+.close i{
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #dfdfdf;
+}
+
+.video{
+    width: 100%;
+    height: 100%;
+}
+
+.video iframe{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}
+
+.castRecommendContainer{
+    padding: 0px 60px;
+    background-color: #FDFDFD;
+}
+
+.castContainer{
+    display: none;
+    max-width: 1500px;
+    padding-top: 15px;
+    margin: auto;
+    background-color: #FDFDFD;
+}
+
+.title{
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 15px 0px;
+    margin: auto;
+}
+
+.castBoxContainer{
+    display: flex;
+    max-height: 400px;
+    padding-bottom: 25px;
+    overflow-x: scroll;
+}
+
+.castBoxContainer::-webkit-scrollbar{
+    height: 6px;
+}
+
+.castBoxContainer::-webkit-scrollbar-track{
+    border-radius: 5px;
+    background-color: rga(241,241,241);
+}
+
+.castBoxContainer::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: #A8A8A8;
+}
+
+.castBox{
+    min-width: 135px;
+    height: 300px;
+    margin: 0px 4px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid rgb(227,227,227);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.castBox:first-child{
+    margin-left: 0px;
+}
+
+.castImg{
+    cursor: pointer;
+    width: 100%;
+    height: 65%;
+}
+
+.castImg img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+}
+
+.castText{
+    width: 100%;
+    height: 35%;
+    padding: 8px;
+    overflow: scroll;
+}
+
+.castText::-webkit-scrollbar{
+    width: 0px;
+}
+
+.castText h3{
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 18px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.castBox h3:hover{
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.castText p{
+    font-size: 0.75rem;
+}
+
+.recommendContainer{
+    display: none;
+    max-width: 1500px;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    margin: auto;
+    background-color: #FDFDFD;
+}
+
+.recommendBoxContainer{
+    display: flex;
+    max-height: 400px;
+    padding-bottom: 25px;
+    overflow-x: scroll;
+}
+
+.recommendBoxContainer::-webkit-scrollbar{
+    height: 6px;
+}
+
+.recommendBoxContainer::-webkit-scrollbar-track{
+    border-radius: 5px;
+    background-color: rga(241,241,241);
+}
+
+.recommendBoxContainer::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: #A8A8A8;
+}
+
+.recommendBox{
+    min-width: 175px;
+    height: 350px;
+    margin: 0px 8px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid rgb(227,227,227);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.recommendBox:first-child{
+    margin-left: 0px;
+}
+
+.recommendImg{
+    width: 100%;
+    height: 70%;
+    cursor: pointer;
+}
+
+.recommendImg img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+}
+
+.recommendText{
+    width: 100%;
+    height: 30%;
+    padding: 7px;
+    padding-top: 10px;
+    overflow: scroll;
+}
+
+.recommendText::-webkit-scrollbar{
+    width: 0px;
+}
+
+.recommendText h3{
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.recommendText h3:hover{
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.recommendInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.recommendInfo p{
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.personDetailContainer{
+    position: relative;
+    width: 95%;
+    max-width: 1500px;
+    padding: 25px;
+    margin: auto;
+    display: none;
+}
+
+.personProfileImg{
+    width: 300px;
+    height: 450px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+}
+
+.personDetails{
+    margin-left: 40px;
+}
+
+.personDetails h2{
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 25px;
+    color: #fff;
+}
+
+.biography{
+    margin-top: 25px;
+    color: #e9e9e9;
+}
+
+.biography h3{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.biography p{
+    font-size: 1rem;
+    margin-bottom: 15px;
+    max-height: 125px;
+    overflow-y: scroll;
+}
+
+.biography p::-webkit-scrollbar{
+    width: 0px;
+}
+
+.personalInfoHeading{
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #e9e9e9;
+}
+
+.personalInfo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    width: 60%;
+    color: #e9e9e9;
+}
+
+.personalInfo strong{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.personalInfo p{
+    font-weight: 300;
+}
+
+.award{
+    grid-column: 1/3;
+}
+
+.role, .birthplace, .award{
+    white-space: nowrap;
+}
+
+#knownForContainer{
+    padding: 0px 60px;
+    background-color: #FDFDFD;
+}
+
+.knownForContainer{
+    display: none;
+    max-width: 1500px;
+    padding: 15px 0px;
+    padding-bottom: 40px;
+    margin: auto;
+    background-color: #FDFDFD;
+}
+
+.knownForBoxContainer{
+    display: flex;
+    max-height: 600px;
+    padding-bottom: 25px;
+    overflow-x: scroll;
+}
+
+.knownForBoxContainer::-webkit-scrollbar{
+    height: 6px;
+}
+
+.knownForBoxContainer::-webkit-scrollbar-track{
+    border-radius: 5px;
+    background-color: rgba(241,241,241);
+}
+
+.knownForBoxContainer::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: #A8A8A8;
+}
+
+.knownForBox{
+    width: 360px;
+    height: 550px;
+    margin: 0px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid rgb(227,227,227);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.knownForBox:first-child{
+    margin-left: 0px;
+}
+
+.knownForBox:last-child{
+    margin-right: 0px;
+}
+
+.knownForImg{
+    width: 100%;
+    height: 78%;
+    cursor: pointer;
+}
+
+.knownForImg img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+}
+
+.knownForText{
+    width: 100%;
+    height: 22%;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.knownForText h3{   
+    font-size: 1.21rem;
+    font-weight: 600;
+    line-height: 18px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.knownForText h3:hover{
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    
+}
+
+.knownForText p{
+    font-size: 0.95rem;
+    width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 1180px) {
+    .navigation, .footer{
+        padding: 20px 45px;
+    }
+
+    .trendingContainer, .nowPlayingContainer, .upcomingContainer{
+        padding: 0px 45px;
+    }
+
+    .castRecommendContainer{
+        padding: 0px 50px;
+    }
+
+    #knownForContainer{
+        padding: 0px 45px;
+    }
+
+    .showResultContainer{
+        padding: 0px 45px;
+    }
+
+    .logo{
+        width: 55px;
+        height: 55px;
+    }
+
+    .menuContainer{
+        margin-left: 10px;
+    }
+
+    .movieMenu span, .tvShowMenu span, .peopleMenu span{
+        font-size: 1.3rem;
+    }
+
+    .searchBox{
+        height: 32px;
+    }
+
+    .searchBox i {
+        font-size: 1.1rem;
+        transform: translateY(2px);
+    }    
+
+    .login{
+        font-size: 1.3rem;
+        margin-left: 10px;
+    }
+
+    .resultContainer{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 20px;
+    }
+
+    .resultDetailContainer, .personDetailContainer{
+        padding: 20px;
+    }
+
+    .moviePosterImg, .personProfileImg{
+        width: 280px;
+    }
+
+    .movieDetails, .personDetails{
+        margin-left: 25px;
+    }
+
+    .knownForBox {
+        width: 260px;
+        height: 460px;
+        margin: 0px 6px;
+    }
+
+    .knownForText h3 {
+        font-size: 1.15rem;
+        width: 240px;
+    }
+
+    .knownForText p {
+        font-size: 0.9rem;
+        width: 240px;
+    }
+}
+
+@media (max-width: 980px) {
+    .navigation, .footer{
+        padding: 20px 40px;
+    }
+
+    .trendingContainer, .nowPlayingContainer, .upcomingContainer{
+        padding: 0px 40px;
+    }
+
+    .castRecommendContainer{
+        padding: 0px 45px;
+    }
+
+    #knownForContainer{
+        padding: 0px 40px;
+    }
+
+    .showResultContainer{
+        padding: 0px 40px;
+    }
+
+    .bannerHeading h2 {
+        font-size: 2.6rem;
+    }
+
+    .bannerHeading h3 {
+        font-size: 1.6rem;
+        line-height: 30px;
+    }
+
+    .logo{
+        width: 50px;
+        height: 50px;
+    }
+
+    .menuContainer{
+        margin-left: 0px;
+    }
+
+    .movieMenu span, .tvShowMenu span, .peopleMenu span{
+        font-size: 1.1rem;
+        margin: 0px 5px;
+    }
+
+    .searchBox{
+        height: 30px;
+        padding: 3px 15px;
+    }
+
+    .login{
+        font-size: 1.1rem;
+        margin-left: 10px;
+    }
+
+    .resultContainer{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .resultDetailContainer, .personDetailContainer{
+        padding: 15px;
+    }
+
+    .moviePosterImg, .personProfileImg{
+        width: 250px;
+        height: 420px;
+    }
+
+    .movieDetails, .personDetails{
+        margin-left: 20px;
+    }
+
+    .movieDetails h2, .personDetails h2{
+        font-size: 1.6rem;
+        letter-spacing: 0px;
+        line-height: 20px;
+    }
+
+    .movieInfomation span{
+        font-size: 1rem;
+        margin-right: 10px;
+        color: #e9e9e9
+    }
+    
+    .movieInfomation span:first-child {
+        font-size: 0.8rem;
+    }    
+    
+    .movieInfomation span img {
+        height: 23px;
+        width: 23px;
+    }
+
+    .watchBtn{
+        width: 120px;
+        height: 35px;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .overview h3, .biography h3{
+        margin: 3px 0px;
+    }
+
+    .overview p, .biography p{
+        max-height: 80px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .biography p{
+        max-height: 102px;
+    }
+
+    .directors, .writers, .stars, .language, .award {
+        margin: 5px 0px;
+        font-size: 0.95rem;
+    }
+
+    .videoPopup {
+        width: 90%;
+    }
+
+    .award{
+        white-space: normal;
+    }
+}
+
+@media (max-width: 880px){
+    .navigation, .footer{
+        padding: 15px 35px;
+    }
+
+    .trendingContainer, .nowPlayingContainer, .upcomingContainer{
+        padding: 0px 35px;
+    }
+
+    .castRecommendContainer{
+        padding: 0px 40px;
+    }
+
+    #knownForContainer{
+        padding: 0px 35px;
+    }
+
+    .showResultContainer{
+        padding: 0px 35px;
+    }
+
+    .bannerHeading h2 {
+        font-size: 2.5rem;
+    }
+
+    .bannerHeading h3 {
+        font-size: 1.5rem;
+    }
+
+    .logo{
+        width: 40px;
+        height: 40px;
+    }
+
+    .movieMenu span, .tvShowMenu span, .peopleMenu span{
+        font-size: 1rem;
+        margin: 0px 5px;
+    }
+
+    .menuDropDown{
+        width: 150px;
+        padding: 6px 0px;
+    }
+
+    .menuDropDown a{
+        padding: 5px 12px;
+        font-size: 0.95rem;
+    }
+
+    .searchBox{
+        height: 29px;
+    }
+
+    .searchBox input::placeholder{
+        font-size: 0.8rem;
+    }
+
+    .searchBox input{
+        width: 230px;
+    }
+
+    .searchBox i {
+        font-size: 1rem;
+    }  
+
+    .login{
+        font-size: 1rem;
+        margin-left: 10px;
+    }
+
+    .searchList{
+        max-height: 375px;
+    }
+
+    .searchListItem{
+        height: 75px;
+        padding: 7px;
+    }
+
+    .searchItemImg{
+        width: 24%;
+    }
+
+    .searchItemInfo{
+        width: 192px;
+        width: 76%;
+    }
+
+    .resultDetailContainer{
+        padding: 10px;
+        min-height: 450px;
+    }
+
+    .personDetailContainer{
+        padding: 10px;
+    }
+
+    .moviePosterImg, .personProfileImg {
+        width: 220px;
+        height: 380px;
+    }
+
+    .movieDetails, .personDetails {
+        margin-left: 15px;
+    }
+
+    .movieDetails h2, .personDetails h2 {
+        font-size: 1.5rem;
+    }
+
+    .movieInfomation {
+        padding-top: 5px;
+    }   
+
+    .movieInfomation span {
+        font-size: 0.95rem;
+        margin-right: 8px;
+    }
+
+    .movieInfomation span:first-child {
+        font-size: 0.75rem;
+        padding: 1px;
+    }
+
+    .movieInfomation span img {
+        height: 21px;
+        width: 21px;
+        transform: translateY(4px);
+    }
+
+    .watchBtn {
+        width: 100px;
+        height: 30px;
+        font-size: 0.7rem;
+        letter-spacing: 0px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .overview p, .biography p{
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .directors, .writers, .stars, .language, .award {
+        margin: 4px 0px;
+    }
+
+    .videoPopup {
+        height: 70%;
+    }
+
+    .biography {
+        margin-top: 20px;
+    }
+
+    .biography h3{
+        font-size: 1.1rem;
+    }
+
+    .personalInfoHeading{
+        font-size: 1.1rem;
+    }
+
+    .personalInfoHeading {
+        margin-bottom: 5px;
+    }
+
+    .personalInfo strong {
+        font-size: 0.98rem;
+    }
+
+    .personalInfo p{
+        font-size: 0.98rem;
+    }
+
+    .knownForBox {
+        width: 220px;
+        height: 400px;
+        margin: 0px 4px;
+    }
+
+    .knownForImg {
+        height: 78%;
+    }
+
+    .knownForText {
+        height: 22%;
+    }
+
+    .knownForText h3 {
+        font-size: 1.1rem;
+        width: 200px;
+    }
+
+    .knownForText p {
+        font-size: 0.85rem;
+        width: 200px;
+    }
+}
+
+@media (max-width: 760px){
+    .navigation, .footer{
+        padding: 15px 30px;
+    }
+
+    .trendingContainer, .nowPlayingContainer, .upcomingContainer{
+        padding: 0px 30px;
+    }
+
+    .castRecommendContainer{
+        padding: 0px 35px;
+    }
+
+    #knownForContainer{
+        padding: 0px 30px;
+    }
+
+    .showResultContainer{
+        padding: 0px 30px;
+    }
+
+    .bannerHeading{
+        padding: 30px;
+    }
+
+    .bannerHeading h2 {
+        font-size: 2.4rem;
+    }
+
+    .bannerHeading h3 {
+        font-size: 1.4rem;
+        line-height: 25px;
+    }
+
+    .movieMenu span, .tvShowMenu span, .peopleMenu span{
+        font-size: 0.9rem;
+        margin: 0px 4px;
+    }
+
+    .menuDropDown{
+        width: 140px;
+        padding: 5px 0px;
+    }
+
+    .menuDropDown a{
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+
+    .searchBox{
+        height: 27px;
+    }
+
+    .searchBox input::placeholder{
+        font-size: 0.7rem;
+    }
+
+    .searchBox input{
+        width: 200px;
+        font-size: 0.8rem;
+    }
+
+    .searchBox i {
+        font-size: 0.9rem;
+    }  
+
+    .login{
+        font-size: 0.9rem;
+        margin-left: 7px;
+    }
+
+    .resultBox, .recommendBox{
+        min-width: 170px;
+        height: 340px;
+        margin: 0px 7px;
+    }
+
+    .searchList{
+        max-height: 350px;
+    }
+
+    .searchListItem{
+        height: 70px;
+        padding: 6px;
+    }
+
+    .searchItemImg{
+        width: 25%;
+        margin-right: 7px;
+    }
+
+    .searchItemInfo{
+        width: 167px;
+    }
+
+    .searchItemInfo h3{
+        font-size: 0.95rem;
+    }
+
+    .searchItemInfo p{
+        font-size: 0.8rem;
+    }
+
+    .resultContainer{
+        grid-gap: 16px;
+    }
+
+    .movieText{
+        padding: 7px;
+    }
+
+    .movieText h3{
+        font-size: 1rem;
+    }
+
+    .movieInfo{
+        margin-top: 5px;
+    }
+
+    .movieInfo p{
+        font-size: 0.85rem;
+    }
+
+    .movieText .rating span{
+        font-size: 0.85rem;
+    }
+
+    .movieText .rating img{
+        height: 18px;
+        width: 18px;
+    }
+
+    .moviePosterImg, .personProfileImg {
+        width: 200px;
+        height: 340px;
+    }
+
+    .movieDetails h2, .personDetails h2 {
+        font-size: 1.3rem;
+    }
+
+    .movieInfomation span {
+        font-size: 0.9rem;
+    }
+
+    .movieInfomation span img {
+        height: 20px;
+        width: 20px;
+    }
+
+    .tagLine i {
+        font-size: 0.9rem;
+    }
+
+    .overview h3, .biography h3{
+        font-size: 0.98rem;
+    }
+
+    .overview p, .biography p{
+        max-height: 75px;
+        font-size: 0.8rem;
+    }
+
+    .biography p{
+        max-height: 90px;
+    }
+
+    .directors strong, .writers strong, .stars strong, .language strong {
+        font-size: 0.95rem;
+    }
+
+    .directors span, .writers span, .stars span, .language span, .award span {
+        font-size: 0.95rem;
+    }
+
+    .videoPopup {
+        height: 65%;
+    }
+
+    .biography h3{
+        font-size: 1rem;
+    }
+
+    .personalInfoHeading{
+        font-size: 1rem;
+    }
+
+    .biography {
+        margin-top: 15px;
+    }
+
+    .personalInfoHeading {
+        margin-bottom: 2px;
+    }
+
+    .personalInfo {
+        grid-gap: 8px;
+    }
+
+    .personalInfo strong {
+        font-size: 0.85rem;
+    }
+
+    .personalInfo p{
+        font-size: 0.85rem;
+    }
+
+    .knownForBox {
+        width: 200px;
+        height: 360px;
+    }
+
+    .knownForText h3 {
+        font-size: 1rem;
+        width: 185px;
+    }
+
+    .knownForText p {
+        font-size: 0.8rem;
+        width: 185px;
+    }
+}
+
+@media (max-width: 660px){
+    .navigation, .footer{
+        padding: 15px 25px;
+    }
+
+    .trendingContainer, .nowPlayingContainer, .upcomingContainer{
+        padding: 0px 25px;
+    }
+
+    .castRecommendContainer{
+        padding: 0px 30px;
+    }
+
+    #knownForContainer{
+        padding: 0px 25px;
+    }
+
+    .menuContainer{
+        display: none;
+    }
+
+    .menuIconContainer{
+        display: block;
+    }
+
+    .showResultContainer{
+        padding: 0px 25px;
+    }
+
+    .bannerHeading h2 {
+        font-size: 2.3rem;
+    }
+
+    .bannerHeading h3 {
+        font-size: 1.3rem;
+    }
+
+    .searchBox{
+        height: 25px;
+        padding: 3px 12px;
+    }
+
+    .searchBox input {
+        font-size: 0.75rem;
+    }
+
+    .login{
+        display: none;
+    } 
+
+    .searchList{
+        max-height: 300px;
+    }
+
+    .searchListItem{
+        height: 60px;
+        padding: 4px;
+    }
+
+    .searchItemImg{
+        width: 23%;
+    }
+
+    .searchItemInfo{
+        width: 170px;
+    }
+
+    .searchItemInfo h3{
+        font-size: 0.9rem;
+    }
+
+    .searchItemInfo p{
+        font-size: 0.75rem;
+    }
+
+    .resultContainer{
+        grid-gap: 10px;
+    }
+
+    .movieText{
+        padding: 6px;
+    }
+
+    .movieText h3{
+        font-size: 0.95rem;
+    }
+
+    .movieInfo p{
+        font-size: 0.8rem;
+    }
+
+    .movieText .rating span{
+        font-size: 0.8rem;
+    }
+
+    .movieText .rating img{
+        height: 16px;
+        width: 16px;
+    }
+
+    .resultDetailContainer, .personDetailContainer{
+        padding: 15px;
+    }
+
+    .resultDetailContainer::after{
+        height: 250px;
+        background: linear-gradient(90deg, rgb(8,8,8) 25%, rgba(0,0,0,0.2) 50%);
+    }
+
+    .movieBackgroundImg{
+        height: 250px;
+    }
+
+    .movieDetailsContainer, .personDetailContainer{
+        position: static;
+        flex-direction: column;
+    }
+
+    .moviePosterImg{
+        width: 160px;
+        height: 220px;
+        padding-top: 0px;
+        z-index: 1;
+    }
+
+    .personProfileImg {
+        width: 200px;
+        height: 200px;
+        align-self: center;
+    }
+
+    .movieDetails, .personDetails {
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+
+    .movieDetails h2, .personDetails h2{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .movieInfomation {
+        text-align: center;
+        padding-top: 7px;
+    }
+
+    .movieInfomation span {
+        font-size: 0.85rem;
+        margin-right: 6px;
+    }
+
+    .movieInfomation span:first-child {
+        font-size: 0.75rem;
+        padding: 1px;
+    }
+
+    .runTime{
+        display: inline;
+    }
+
+    .RunTime{
+        display: none;
+    }
+
+    .genres{
+        display: block;
+        margin-top: 5px;
+    }
+
+    .watchBtn{
+        margin: 10px auto;
+    }
+
+    .tagLine i {
+        font-size: 0.85rem;
+    }
+
+    .overview p, .biography p{
+        max-height: 110px;
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .directors strong, .writers strong, .stars strong, .language strong {
+        font-size: 0.9rem;
+    }
+
+    .directors span, .writers span, .stars span, .language span, .award span {
+        font-size: 0.9rem;
+    }
+
+    .videoPopup {
+        height: 55%;
+    }
+
+    .close {
+        padding: 15px;
+    }
+
+    .personalInfo {
+        grid-gap: 12px;
+        width: 80%;
+    }
+
+    .role, .birthplace, .award {
+        white-space: normal;
+    }
+}
+
+@media (max-width: 560px){
+    .navigation, .footer{
+        padding: 10px 20px;
+    }
+
+    .trendingContainer, .nowPlayingContainer, .upcomingContainer{
+        padding: 0px 20px;
+    }
+
+    .castRecommendContainer{
+        padding: 0px 25px;
+    }
+
+    #knownForContainer{
+        padding: 00px 20px;
+    }
+
+    .showResultContainer{
+        padding: 0px 20px;
+    }
+
+    .bannerHeading h2 {
+        font-size: 2.2rem;
+    }
+
+    .bannerHeading h3 {
+        font-size: 1.2rem;
+    }
+
+    .titleContainer .header{
+        font-size: 1.2rem;
+    }
+
+    .filterRadios{
+        padding: 2px 0px;
+        margin-left: 10px;
+    }
+
+    .resultBox, .recommendBox{
+        min-width: 165px;
+        height: 330px;
+        margin: 0px 6px;
+    }
+
+    .resultText h3, .recommendInfo h3{
+        font-size: 0.9rem;
+    }
+
+    .resultInfo p, .recommendInfo p{
+        font-size: 0.8rem;
+    }
+
+    .rating span{
+        font-size: 0.8rem;
+    }
+
+    .rating img{
+        height: 16px;
+        width: 16px;
+    }
+
+    .heading{
+        padding: 6px 12px;
+    }
+
+    .heading h1{
+        font-size: 1rem;
+    }
+
+    .resultContainer{
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+
+    .resultDetailContainer, .personDetailContainer{
+        padding: 10px;
+    }
+
+    .resultDetailContainer::after{
+        height: 225px;
+    }
+
+    .movieBackgroundImg{
+        height: 225px;
+    }
+
+    .moviePosterImg{
+        width: 140px;
+        height: 200px;
+    }
+
+    .personProfileImg {
+        width: 180px;
+        height: 180px;
+    }
+
+    .personDetails{
+        margin-top: 25px;
+    }
+
+    .movieDetails h2{
+        font-size: 1.1rem;
+    }
+
+    .movieInfomation span {
+        font-size: 0.8rem;
+        margin-right: 6px;
+    }
+
+    .movieInfomation span:first-child {
+        font-size: 0.7rem;
+        padding: 1px;
+    }
+
+    .movieInfomation span img {
+        height: 18px;
+        width: 18px;
+    }
+
+    .genres{
+        margin-top: 5px;
+    }
+
+    .watchBtn{
+        margin: 10px auto;
+    }
+
+    .tagLine i {
+        font-size: 0.8rem;
+    }
+
+    .overview h3 {
+        font-size:0.95rem;
+    }
+
+    .overview p {
+        font-size: 0.77rem;
+    }
+
+    .directors strong, .writers strong, .stars strong, .language strong {
+        font-size: 0.85rem;
+    }
+
+    .directors span, .writers span, .stars span, .language span, .award span {
+        font-size: 0.85rem;
+    }
+
+    .videoPopup {
+        height: 50%;
+    }
+
+    .close {
+        padding: 10px;
+    }
+
+    .personalInfo {
+        width: 100%;
+    }
+
+    .knownForBox {
+        width: 185px;
+        height: 340px;
+    }
+
+    .knownForText{
+        padding: 8px;
+    }
+
+    .knownForText h3 {
+        font-size: 0.95rem;
+        width: 170px;
+    }
+
+    .knownForText p {
+        font-size: 0.8rem;
+        width: 170px;
+    }
+
+    .title{
+        font-size: 1.2rem;
+    }
+
+    footer span{
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px){
+    .castRecommendContainer{
+        padding: 0px 20px;
+    }
+
+    .bannerContainer{
+        width: 90%;
+    }
+
+    .bannerHeading{
+        padding: 25px;
+    }
+
+    .bannerHeading h2 {
+        font-size: 2.1rem;
+    }
+
+    .bannerHeading h3 {
+        font-size: 1.1rem;
+        line-height: 20px;
+    }
+
+    .menuIconContainer {
+        margin-right: 8px;
+    }
+
+    footer span{
+        font-size: 0.9rem;
+    }
+
+    .searchBox {
+        padding: 3px 10px;
+    }
+
+    .searchBox input {
+        width: 185px;
+        font-size: 0.7rem;
+    }
+
+    .searchBox input::placeholder {
+        font-size: 0.7rem;
+    }
+
+    .searchBox i {
+        font-size: 0.85rem;
+    }
+
+    .searchList {
+        max-height: 275px;
+    }
+
+    .searchListItem {
+        height: 55px;
+    }
+
+    .searchItemImg {
+        width: 22%;
+    }
+
+    .searchItemInfo {
+        width: 155px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .searchItemInfo h3 {
+        font-size: 0.8rem;
+    }
+
+    .searchItemInfo p {
+        font-size: 0.65rem;
+    }
+
+    .movieText h3{
+        font-size: 0.9rem;
+        line-height: 17px;
+    }
+
+    .titleContainer .header{
+        font-size: 1.1rem;
+    }
+
+    .filterRadios{
+        padding: 1px 0px;
+        margin-left: 10px;
+    }
+
+    .nowPlayingContainer .titleContainer{
+        display: none;
+    }
+
+    .responsiveTitleContainer{
+        display: block;
+    }
+    
+    .showResultContainer{
+        margin: 20px auto;
+    }
+
+    .resultContainer{
+        grid-gap: 15px;
+        margin: 20px 0px;
+    }
+
+    .videoPopup {
+        height: 40%;
+    }
+
+    .close span {
+        font-size: 0.9rem;
+    }
+
+    .close i {
+        font-size: 1rem;
+    }    
+
+    .resultDetailContainer::after{
+        height: 215px;
+    }
+
+    .movieBackgroundImg{
+        height: 215px;
+    }
+
+    .moviePosterImg{
+        width: 130px;
+        height: 190px;
+    }
+
+    .personProfileImg {
+        width: 150px;
+        height: 150px;
+        border-radius: 5px;
+    }
+
+    .biography h3 {
+        font-size:0.95rem;
+    }
+
+    .biography p {
+        font-size: 0.77rem;
+    }
+
+    .personalInfoHeading{
+        font-size: 0.95rem;
+    }
+
+    .personalInfo {
+        grid-gap: 8px;
+    }
+
+    .title{
+        font-size: 1.1rem;
+    }
+
+    .knownForBox {
+        width: 170px;
+        height: 320px;
+        margin: 0px 3px;
+    }
+
+    .knownForText{
+        padding: 6px;
+    }
+
+    .knownForText h3 {
+        font-size: 0.9rem;
+        width: 160px;
+        margin-bottom: 2px;
+    }
+
+    .knownForText p {
+        font-size: 0.75rem;
+        width: 155px;
+    }
+
+    .pageNumber span {
+        font-size: 0.95rem;
+        margin: 0px 7px;
+    }
+}    
+
+@media (max-width: 420px){
+    .bannerHeading{
+        padding: 20px;
+    }
+
+    .bannerHeading h2 {
+        font-size: 2rem;
+    }
+
+    .bannerHeading h3 {
+        font-size: 1rem;
+    }
+
+    .resultBox, .recommendBox{
+        min-width: 158px;
+        height: 320px;
+        margin: 0px 5px;
+    }
+
+    .resultText, .recommendText{
+        padding: 6px;
+    }
+
+    .resultText h3, .recommendInfo h3{
+        font-size: 0.9rem;
+    }
+
+    .resultInfo p, .recommendInfo p{
+        font-size: 0.8rem;
+    }
+
+    .heading{
+        padding: 5px 10px;
+    }
+
+    .heading h1{
+        font-size: 0.95rem;
+    }
+
+    .resultContainer{
+        grid-gap: 10px;
+    }
+
+    .resultDetailContainer::after{
+        height: 175px;
+    }
+
+    .movieBackgroundImg{
+        height: 175px;
+    }
+
+    .personProfileImg {
+        width: 130px;
+        height: 130px;
+    }
+
+    .personDetails{
+        margin-top: 20px;
+    }
+
+    .moviePosterImg{
+        width: 100px;
+        height: 150px;
+    }
+
+    .videoPopup {
+        height: 33%;
+    }
+
+    footer span{
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 390px){
+    .knownForBox {
+        width: 165px;
+    }
+
+    .knownForText{
+        padding: 6px;
+    }
+
+    .knownForText h3 {
+        width: 155px;
+    }
+
+    .knownForText p {
+        width: 150px;
+    }  
+}

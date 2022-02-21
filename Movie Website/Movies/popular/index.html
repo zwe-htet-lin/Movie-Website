@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Website</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../../images/fav-icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/78e0ee1412.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <button class="back">Back</button>
+    
+    <nav class="navigationContainer">
+
+        <div class="navigation">
+
+            <div class="leftNavigation">
+
+                <div class="menuIconContainer">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                    <div class="line line3"></div>
+                </div>
+
+                <a href="../../index.html" class="logo">
+                    <img src="../../images/fav-icon.png">
+                </a>
+        
+                <div class="menuContainer">
+    
+                    <div class="movieMenu">
+                        <span>Movies</span>
+                        <div class="menuDropDown">
+                            <a href="../../Movies/popular/index.html">Popular</a>  
+                            <a href="../../Movies/in theatres/index.html">In Theatres</a>  
+                            <a href="../../Movies/upcoming/index.html">Upcoming</a>    
+                            <a href="../../Movies/top rated/index.html">Top Rated</a>  
+                        </div>
+                    </div>
+                    
+                    <div class="tvShowMenu">
+                        <span>Tv Shows</span>
+                        <div class="menuDropDown">
+                            <a href="../../TV Shows/popular/index.html">Popular</a>    
+                            <a href="../../TV Shows/airing today/index.html">Airing Today</a>  
+                            <a href="../../TV Shows/on tv/index.html">On Tv</a>    
+                            <a href="../../TV Shows/top rated/index.html">Top Rated</a>    
+                        </div>
+                    </div>
+    
+                    <div class="peopleMenu">
+                        <span>People</span>
+                        <div class="menuDropDown">
+                            <a href="../../People/index.html">Popular People</a>   
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    
+            <div class="rightNavigation">
+                <form action="" class="searchBox">
+                    <input type="text" placeholder="Search movie" class="searchInput">
+                    <button type="submit"><i class="material-icons">search</i></button>   
+                    <div class="searchList"></div>    
+                </form>
+                <a class="login" href="../../Sign In Form/index.html">Login</a>
+            </div>
+    
+        </div>
+
+    </nav>
+
+    <section class="sideBarContainer">
+
+        <div class="closeSideBar">
+            <i class="material-icons closeBtn">close</i>
+        </div>
+
+        <div class="sideBarMovieMenuContainer">
+
+            <div class="sideBarMenu">
+                <div class="iconText">
+                    <span class="material-icons">movie</span>
+                    <span>Movies</span>
+                </div>
+                <span class="material-icons dropdown">expand_more</span>
+            </div>
+
+            <div class="sideBarMovieMenuDropdown">
+                <a href="../../Movies/popular/index.html">Popular</a> 
+                <a href="../../Movies/in theatres/index.html">In Theatres</a> 
+                <a href="../../Movies/upcoming/index.html">Upcoming</a>   
+                <a href="../../Movies/top rated/index.html">Top Rated</a> 
+            </div>
+
+        </div>
+
+        <div class="sideBarTvshowMenuContainer">
+
+            <div class="sideBarMenu">
+                <div class="iconText">
+                    <span class="material-icons">desktop_windows</span>
+                    <span>TV Shows</span>
+                </div>
+                <span class="material-icons dropdown">expand_more</span>
+            </div>
+
+            <div class="sideBarTvshowMenuDropdown">
+                <a href="../../TV Shows/popular/index.html">Popular</a>   
+                <a href="../../TV Shows/airing today/index.html">Airing Today</a> 
+                <a href="../../TV Shows/on tv/index.html">On TV</a>   
+                <a href="../../TV Shows/top rated/index.html">Top Rated</a>   
+            </div>
+            
+        </div>
+
+        <div class="sideBarPeopleMenuContainer">
+
+            <div class="sideBarMenu">
+                <div class="iconText">
+                    <span class="material-icons">group</span>
+                    <span>People</span>
+                </div>
+                <span class="material-icons dropdown">expand_more</span>
+            </div>
+
+            <div class="sideBarPeopleMenuDropdown">
+                <a href="../../People/index.html">Popular People</a>  
+            </div>
+            
+        </div>
+
+        <div class="sideBarLoginMenuContainer">
+
+            <div class="sideBarMenu">
+                <div class="iconText">
+                    <span class="material-icons">account_circle</span>
+                    <span>Account</span>
+                </div>
+                <span class="material-icons dropdown">expand_more</span>
+            </div>         
+            
+            <div class="loginMenuDropdown">
+                <a href="../../Sign In Form/index.html">Sign In</a>   
+                <a href="../../Sign Up Form/index.html">Sign Up</a>   
+            </div>
+        </div>
+
+    </section>
+
+    <section class="showResultContainer">
+
+        <div class="heading">
+            <h1>Popular Movies</h1>
+        </div>  
+
+        <div class="movieContainer">
+            
+        </div>
+
+        <div class="pageNumber">
+            <span class="prev">Prev</span>
+            <span class="one active">1</span>
+            <span class="two">2</span>
+            <span class="three">3</span>
+            <span class="numbers"></span>
+            <span class="dot">. . .</span>
+            <span class="last"></span>
+            <span class="next">Next</span>
+        </div>
+
+    </section>
+
+    <section class="movieDetailContainer">
+        
+    </section>
+
+    <section class="castRecommendContainer">
+
+        <section class="castContainer">
+        
+        </section>
+    
+        <section class="recommendContainer">
+    
+        </section>
+
+    </section>
+
+    <section class="personDetailContainer">
+        
+    </section>
+
+    <section id="knownForContainer">
+    
+        <section class="knownForContainer">
+    
+        </section>
+
+    </section>
+
+    <footer>
+        <div class="footer">
+            <a href="../../index.html" class="logo">
+                <img src="../../images/fav-icon.png">
+            </a>
+            <span class="copyright"> &copy; copyright 2022 &nbsp; Zwe Htet Lin</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
